@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+import os
+import sys
+import re
+
+with open(sys.argv[1], 'r+') as fp:
+    content = []
+    lines = fp.readlines()
+    open('%s.bak' % sys.argv[1], 'w').write(''.join(lines))
+    for l in lines:
+        l = l.strip()
+        if l == "":
+            content.append(l) # paragraph
+            continue
+        l = re.sub(r"(?<!\\)((?:\\{2})*)%.*$", lambda match: match.group(1) if match.group(1) else "", l)
+        if l == "":
+            continue
+        content.append(l)
+    # overwrite
+    fp.seek(0)
+    fp.truncate()
+    fp.write("\n".join(content))

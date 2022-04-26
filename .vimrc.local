@@ -1,3 +1,0 @@
-au FileType tex setlocal foldlevelstart=8 foldlevel=8
-noremap <C-B> :AsyncRun make<CR>
-" set spell

@@ -10,7 +10,7 @@
 /*.log
 /*.out
 /*.toc
-/*.pdf
+/p.pdf
 /bibexport.bib
 /die.tar.gz
 /rev.tex
@@ -25,8 +25,15 @@
 !/data/*.eps
 .latexrun.db
 .latexmkrc
+.DS_Store
+/auto
+/bin
+/conf.bib
 /data/color
 /lab.bib
 /sty
-.DS_Store
-/symlink.py
+/bin
+/conf.bib
+/data/color
+/lab.bib
+/sty
