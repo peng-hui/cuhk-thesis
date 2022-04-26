@@ -1,4 +1,3 @@
-----
 Updated by Penghui Li to sync with SecLab/die template. 
 ``` txt
 ├── Makefile
@@ -32,6 +31,7 @@ There are multiple online websites that can do the job.
 
 The scripts under bin/ come from various sources and the credit should go to their original developers.
 
+----
 A PhD Thesis submitted to CUHK
 ---------------------------------------------
 Author: [ZHENG Fan](https://github.com/izhengfan)
