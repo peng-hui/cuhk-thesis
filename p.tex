@@ -1,8 +1,7 @@
 %!TEX program=xelatex
 \documentclass[12pt,a4paper,twoside]{report}
-% Revised by ZHENG Fan (fzheng@link.cuhk.edu.hk) according to
-% CUHK Grad. School's requirements on thesis format. Check:
-%   https://www.gradsch.cuhk.edu.hk/pgstudent/gsinfo/research/Chapter%206.html
+%according to CUHK Grad. School's requirements on thesis format 
+% https://www.gradsch.cuhk.edu.hk/pgstudent/gsinfo/research/Chapter%206.html
 
 %=======================================================
 % handle Chinese and fonts
@@ -26,12 +25,7 @@
 %=======================================================
 % personally imported packages and customization
 \usepackage[mono=false]{libertine} % I personally favour this font
-%\usepackage{subfig}
-%\usepackage{tikz}
-%\usepackage{pgfplots}
-%\graphicspath{{figures/}}
 \usepackage[square,comma,numbers,sort&compress]{natbib}
-\def\cite{\citep}
 % CUHK has no limitations on bibliography style, use your favor.
 %\bibliographystyle{ieeetr} % for 'nubmers' citation style
 %\usepackage[colorlinks=true,linkcolor=blue,citecolor=magenta]{hyperref}
@@ -40,13 +34,6 @@
 \begin{document}
 
 \input{hdr}
-
-%=======================================================
-%=======================================================
-%=======================================================
-%\input{sections/symbols-and-acronyms.tex}
-%=======================================================
-
 \newpage
 \setcounter{page}{0}
 \pagenumbering{arabic}
@@ -55,15 +42,7 @@
 %insert the chapters
 %=======================================================
 
-\input{problem/chapter}
-
-\input{lchecker/chapter}
-\input{lchecker/intro}
-
-\input{xsym/chapter}
-\input{xsym/intro}
-
-\input{conclusion}
+\input{chapter}
 
 %=======================================================
 %\appendix

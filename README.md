@@ -7,18 +7,16 @@ Updated by Penghui Li to sync with SecLab/die template.
 ├── abstract-zh.tex > abstract in Chinese
 ├── abstract.tex > abstract in English
 ├── dedication.tex
+├── chapter.tex > main text
 ├── ack.tex > acknledgement
 ├── code > code snippets
 ├── fig > figures
+├── pkgs.tex 
 ├── p.bib > bibtex
-├── conclusion.tex 
 ├── bin > scripts
 ├── cmds.tex > self-defined latex command
-├── pkgs.tex 
 ├── rev.tex
-├── problem > chapter 1
-├── lchecker > a paper
-└── xsym > a paper
+└── rev.tex
 ```
 
 There are several notes:
