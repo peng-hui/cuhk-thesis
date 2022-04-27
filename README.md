@@ -15,7 +15,6 @@ Updated by Penghui Li to sync with SecLab/die template.
 ├── p.bib > bibtex
 ├── bin > scripts
 ├── cmds.tex > self-defined latex command
-├── rev.tex
 └── rev.tex
 ```
 
