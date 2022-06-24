@@ -153,3 +153,148 @@
 \end{tabular}
 \vspace{-10pt}
 }
+
+\newcommand{\blstinline}[1]{\lstinline[numbers=none, caption={}, frame={},stringstyle=\color{black}, deletekeywords={md5, foreach,strcmp, array, stripslashes},identifierstyle=\color{black},commentstyle=\color{black}]{#1}} 
+
+\def\degree#1{\def\degree{#1}}
+\def\degreezh#1{\def\degreezh{#1}}
+\def\programme#1{\def\programme{#1}}
+\def\programmezh#1{\def\programmezh{#1}}
+\def\supervisor#1{\def\supervisor{#1}}
+\def\thesistitle#1{\def\thesistitle{#1}}
+\def\thesistitlezh#1{\def\thesistitlezh{#1}}
+\def\authorname#1{\def\authorname{#1}}
+\def\authornamezh#1{\def\authornamezh{#1}}
+\def\submitdate#1{\def\submitdate{#1}}
+\def\institution#1{\def\institution{#1}}
+\def\institutionzh#1{\def\institutionzh{#1}}
+\def\committee#1{\def\committee{#1}}
+\def\abstract#1{\def\abstract{#1}}
+\def\abstractzh#1{\def\abstractzh{#1}}
+\def\acknowledgement#1{\def\acknowledgement{#1}}
+\def\dedication#1{\def\dedication{#1}}
+
+\def\printcoverpage{
+  % no page number for the cover page
+  \thispagestyle{empty}
+
+  \vspace*{2cm}
+  \begin{center}
+    \LARGE {\bf \thesistitle}
+
+    \vskip 1cm
+    \large \textbf{\authorname}
+
+    \vskip 1cm
+    \large
+  % both Fulfilment and Fulfillment are correct
+    A Thesis Submitted in Partial Fulfilment \\
+    of the Requirements for the Degree of \\
+    \degree \\
+    in \\
+    \programme \\
+
+    %\vfill
+    \vskip 1.5cm
+    \large \institution \\
+    \submitdate
+  \end{center}
+
+  \newpage
+
+  \thispagestyle{empty}
+  \vspace*{10mm}
+  \begin{center}
+    \large
+    \underline{\bf Thesis Assessment Committee}
+    \vskip 1.5cm 
+    \committee
+    \vfill
+  \end{center}
+  \normalsize
+  \newpage
+}
+
+%=======================================================
+
+\def\printabstractpage{
+  % XXX a known bug: click abstract in menu will not 
+  % direct to correct position
+  \addcontentsline{toc}{chapter}{Abstract}
+  \noindent Abstract of thesis entitled: \\
+  \underline{\thesistitle} \\
+  Submitted by \underline{\authorname} \\
+  for the degree of \underline{\degree} \\
+  at \institution~in \submitdate
+  \vskip 0.5cm \noindent
+  \input{\abstract}
+  \vfill
+
+  \newpage
+
+  %\vspace*{1.5cm}
+  %\chapter*{摘要}
+  %\addcontentsline{toc}{chapter}{摘要}
+  \noindent 論文題目：\underline{\thesistitlezh}\\
+  \noindent 作者：\underline{\authornamezh} \\
+  \noindent 學校：\underline{\institutionzh} \\
+  \noindent 學系：\underline{\programmezh} \\
+  \noindent 修讀學位：\underline{\degreezh} \\
+  \noindent 摘要:
+
+  \vskip 0.5cm
+  \input{\abstractzh}
+  \clearpage
+}
+
+%=======================================================
+
+\def\printacknowledgementpage{%
+  \chapter*{Acknowledgement}
+  \addcontentsline{toc}{chapter}{Acknowledgement}
+  \input{\acknowledgement}
+  \newpage
+}
+
+%=======================================================
+
+\def\printdedicationpage{%
+  \vspace*{1cm}
+  \vfill
+  \begin{center}
+      \input{\dedication}
+  \end{center}
+  \vfill
+  \newpage
+}
+
+
+%=======================================================
+
+\newcommand{\snote}[2]{%
+  \vspace*{3mm}
+  \begin{center}
+    \framebox[13.6cm][t]{%
+      \hspace*{2mm}
+      \parbox[t]{12.8cm}{%
+        \vspace*{2mm}
+        \centerline{\bf #1}\vspace*{-2mm}
+        \rule{12.8cm}{0.4mm} 
+        \\#2
+        \vspace*{3mm}
+      }
+    }
+  \end{center}
+  \vspace*{3mm}
+}
+
+\newcommand{\chapterend}{
+  \vfill
+  \noindent\rule{\textwidth}{0.5mm} \\
+  \noindent{\large\bf $\Box$ End of chapter.}
+}
+
+\newcommand{\reading}[1]{
+  \vfill
+  \noindent {\bf $\equiv$ Readings:}  #1
+}
