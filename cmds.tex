@@ -174,7 +174,7 @@
 \def\acknowledgement#1{\def\acknowledgement{#1}}
 \def\dedication#1{\def\dedication{#1}}
 
-\def\printcoverpage{
+\def\coverpage{
   % no page number for the cover page
   \thispagestyle{empty}
 
@@ -217,7 +217,7 @@
 
 %=======================================================
 
-\def\printabstractpage{
+\def\abstractpage{
   % XXX a known bug: click abstract in menu will not 
   % direct to correct position
   \addcontentsline{toc}{chapter}{Abstract}
@@ -249,7 +249,7 @@
 
 %=======================================================
 
-\def\printacknowledgementpage{%
+\def\acknowledgementpage{%
   \chapter*{Acknowledgement}
   \addcontentsline{toc}{chapter}{Acknowledgement}
   \input{\acknowledgement}
@@ -258,7 +258,7 @@
 
 %=======================================================
 
-\def\printdedicationpage{%
+\def\dedicationpage{%
   \vspace*{1cm}
   \vfill
   \begin{center}
