@@ -1,4 +1,4 @@
-Updated by Penghui Li to sync with SecLab/[die](https://github.com/tsgates/die) template. There are lots of useful commands defined in cmds.tex. You can also find a synchronized version on [Overleaf]().
+Updated by Penghui Li to sync with SecLab/[die](https://github.com/tsgates/die) template. There are lots of useful commands defined in cmds.tex. You can also find a synchronized version on [Overleaf](https://www.overleaf.com/read/pzxjtjjhrsps). 
 
 ``` txt
 ├── Makefile
@@ -20,6 +20,7 @@ Updated by Penghui Li to sync with SecLab/[die](https://github.com/tsgates/die) 
 ```
 
 There are several notes:
+* Use XeLatex instead of pdflatex for the compilation.
 * To enable latex compilation in your local host, you need have text-live installed. You might also need some more packages.
 * The build script might abort before the references are successfully linked. You might need to build twice (i.e., run `make` twice).
 * You might reuse the content in your previous papers in the thesis.
