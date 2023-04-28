@@ -1,7 +1,7 @@
 \renewcommand{\ttdefault}{pxtt}
 
 \newcommand{\URL}{\url}
-\newcommand{\cc}[1]{\mbox{\smaller[0.5]\texttt{#1}}}
+\newcommand{\cc}[1]{{\smaller[0.5]\texttt{#1}}}
 
 % enable the below for ACM camera ready
 %\clubpenalty=10000
@@ -58,10 +58,11 @@
 \newif\ifnotes\notestrue
 \ifdraft\else\notesfalse\fi
 
+\newcommand{\ie}{{\em i.e.}}
 \newcommand{\eg}{{\em e.g.}}
+\newcommand{\aka}{{\em a.k.a}}
 \newcommand{\etal}{{\em et al.}}
 \newcommand{\etc}{{\em etc.}}
-\newcommand{\ie}{{\em i.e.}}
 
 % hide comments
 % \renewcommand{\TK}[1]{\ignorespaces}
@@ -84,7 +85,7 @@
 
 % list
 \newcommand{\squishlist}{
-\begin{itemize}[noitemsep,nolistsep]
+\begin{itemize}[noitemsep,nolistsep] %,leftmargin=10pt]
   \setlength{\itemsep}{-0pt}
 }
 \newcommand{\squishend}{
@@ -110,7 +111,11 @@
 \usepackage{xstring}
 \newcommand{\PP}[1]{
 \vspace{2bp}
-\noindent{\bf \IfEndWith{#1}{.}{#1}{#1.}}
+\noindent{{\bf {\IfEndWith{#1}{.}{#1}{#1.}}}}
+}
+\newcommand{\subsubsubsection}[1]{
+\vspace{2bp}
+\noindent{\underline{#1}\hfill\break}
 }
 
 \newcommand{\PN}[1]{
@@ -142,7 +147,7 @@
 \newcommand{\boxbeg}{
 \vspace{2bp}
 \noindent\begin{tabular}{|l|}\hline
-\begin{minipage}{3.2in}
+\begin{minipage}{0.98\textwidth}
 \vspace{2bp}
 \noindent
 }
@@ -222,7 +227,7 @@
   % direct to correct position
   \addcontentsline{toc}{chapter}{Abstract}
   \noindent Abstract of thesis entitled: \\
-  \underline{\thesistitle} \\
+  \expandafter\ul\expandafter{\thesistitle} \\
   Submitted by \underline{\authorname} \\
   for the degree of \underline{\degree} \\
   at \institution~in \submitdate
@@ -298,3 +303,12 @@
   \vfill
   \noindent {\bf $\equiv$ Readings:}  #1
 }
+
+\newcommand*\emptycirc[1][1ex]{\tikz\draw (0,0) circle (#1);} 
+\newcommand*\halfcirc[1][1ex]{%
+  \begin{tikzpicture}
+  \draw[fill] (0,0)-- (90:#1) arc (90:270:#1) -- cycle ;
+  \draw (0,0) circle (#1);
+  \end{tikzpicture}}
+\newcommand*\fullcirc[1][1.05ex]{\tikz\fill (0,0) circle (#1);} 
+\counterwithout{footnote}{chapter}

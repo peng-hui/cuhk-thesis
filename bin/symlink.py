@@ -2,9 +2,9 @@
 
 import os, sys, shutil
 
-TEMPLATE_DIR="~/submission/paper-template" # Change this to the path of your local paper-template
+TEMPLATE_DIR="~/project/paper-template" # Change this to the path of your local paper-template
 
-LINKS = ["bin", "Makefile", "conf.bib", "data/color", "lab.bib", "sty"]
+LINKS = ["bin", "conf.bib", "data/color", "lab.bib", "sty"]
 
 TEMPLATE_DIR = os.path.expanduser(TEMPLATE_DIR)
 PWD = os.getcwd()
@@ -38,11 +38,13 @@ for l in LINKS:
         print(e)
 
 IGNORE_LIST = ["/" + l for l in LINKS]
-with open(".gitignore", "r") as f:
-    ignored_entries = f.read().split('\n')
-    for e in ignored_entries:
-        if e in IGNORE_LIST:
-            IGNORE_LIST.remove(e)
+if os.path.isfile(".gitignore"):
+    with open(".gitignore", "r") as f:
+        ignored_entries = f.read().split('\n')
+        for e in ignored_entries:
+            if e in IGNORE_LIST:
+                IGNORE_LIST.remove(e)
+
 
 with open(".gitignore", "a") as f:
     for l in IGNORE_LIST:

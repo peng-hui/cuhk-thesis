@@ -6,15 +6,19 @@ import re
 with open(sys.argv[1], 'r+') as fp:
     content = []
     lines = fp.readlines()
-    open('%s.bak' % sys.argv[1], 'w').write(''.join(lines))
+    open('%s.bak' % sys.argv[1], 'w').write(''.join(lines)) # create backup file
+    empty_line_flag = False # to avoid continuous empty line
     for l in lines:
         l = l.strip()
         if l == "":
-            content.append(l) # paragraph
+            if empty_line_flag == False:
+                content.append(l) # paragraph
+                empty_line_flag = True
             continue
         l = re.sub(r"(?<!\\)((?:\\{2})*)%.*$", lambda match: match.group(1) if match.group(1) else "", l)
         if l == "":
             continue
+        empty_line_flag = False
         content.append(l)
     # overwrite
     fp.seek(0)

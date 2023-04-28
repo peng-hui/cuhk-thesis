@@ -1,22 +1,24 @@
 %!TEX program=xelatex
-\documentclass[12pt,a4paper,twoside]{report}
+\documentclass[12pt,a4paper,oneside]{report}
 %according to CUHK Grad. School's requirements on thesis format 
 % https://www.gradsch.cuhk.edu.hk/pgstudent/gsinfo/research/Chapter%206.html
 
 %=======================================================
 % handle Chinese and fonts
 % CUHK has no limitations on font-types
-\usepackage{fontspec}
 \usepackage[scheme=plain]{ctex}
-% \setCJKmainfont{SimSun} % 可自行更改为系统中文字体；SimSun即Windows宋体。
+\usepackage[T1]{fontenc}
 %=======================================================
+
 \input{pkgs.tex}
 \input{cmds.tex}
 %\input{format/symbols}
 %=======================================================
 % margins and spacing required by CUHK Grad-School
 % 4 cm margin for binding edge, 2.5 cm for outer edge:
-\usepackage[inner=4cm,outer=4cm]{geometry}
+\usepackage[margin={1.2in}]{geometry}
+\setcounter{secnumdepth}{3}
+
 \usepackage{setspace}
 % 1.5 line spacing for normal texts:
 \setstretch{1.5}
@@ -32,26 +34,26 @@
 %=======================================================
 \newcommand{\sys}{\mbox{\textsc{sys}}\xspace}
 \begin{document}
-
 \input{hdr}
 \newpage
 \setcounter{page}{0}
 \pagenumbering{arabic}
-\pagestyle{headings}
+%\pagestyle{headings}
 %=======================================================
 %insert the chapters
 %=======================================================
 
-\input{chapter}
+\input{1-chapter-intro}
+\chapterend
 
-%=======================================================
-%\appendix
-%\input{publication}
+
+\input{5-conclusion}
+\chapterend
+
 %=======================================================
 \newpage
-% CUHK recommend single-spaced references
+% CUHK recommends single-spaced references
 \setstretch{1}
 \bibliographystyle{plain} 
-\bibliography{p}
+\bibliography{p, conf}
 \end{document}
-

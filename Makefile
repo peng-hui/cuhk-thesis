@@ -1,11 +1,10 @@
 MAIN ?= p
 DIFF ?= HEAD^
-CODE := 
-#$(addsuffix .tex,$(filter-out %.tex,$(wildcard code/*)))
+CODE := $(addsuffix .tex,$(filter-out %.tex,$(wildcard code/*)))
 FIGS := $(patsubst %.svg,%.pdf,$(wildcard fig/*.svg))
 ODGS := $(patsubst %.odg,%.pdf,$(wildcard fig/*.odg))
 PLOT := $(patsubst %.gp,%.tex,$(wildcard data/*.gp))
-DEPS := rev.tex code/fmt.tex abstract.txt $(CODE) $(FIGS) $(ODGS) $(PLOT)
+DEPS := rev.tex abstract.txt $(CODE) $(FIGS) $(ODGS) $(PLOT)
 LTEX := --latex-args="-synctex=1 -shell-escape" --latex-cmd="xelatex"
 BTEX := --bibtex-args="-min-crossrefs=99"
 SHELL:= $(shell echo $$SHELL)
@@ -48,9 +47,6 @@ rev.tex: FORCE
 code/%.tex: code/% ## build highlighted tex code from source code
 	pygmentize -P tabsize=4 -P mathescape -f latex $^ | bin/mark.py > $@
 
-code/fmt.tex: ## generate color table
-	pygmentize -f latex -S default > $@
-
 fig/%.pdf: fig/%.svg ## generate pdf from svg
 	$(INKSCAPE) --without-gui -f ${CURDIR}/$^ -D -A ${CURDIR}/$@
 
@@ -92,10 +88,11 @@ clean: ## clean up
 
 distclean: clean ## clean up completely
 	rm -f code/*.tex
+	git checkout code/fmt.tex
 	rm -rf _minted-p
 	rm -rf latex.out
 
 abstract.txt: abstract.tex $(MAIN).tex ## generate abstract.txt
-	@bin/mkabstract $(MAIN).tex $< | fmt -w72 > $@
+	@bin/mkabstract $(MAIN).tex $< | fmt -w2000 | sed 's/\.  /. /g' > $@
 
 .PHONY: all help FORCE draft clean spell distclean init bib
